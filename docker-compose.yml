@@ -7,3 +7,8 @@ services:
       KSQL_BOOTSTRAP_SERVERS: kafka:9092
       KSQL_LISTENERS: http://0.0.0.0:8088
       KSQL_KSQL_SERVICE_ID: ksql_service_1_
+
+  networks:
+    default:
+      external:
+        name: titan-ccp-demo_default
