@@ -1,0 +1,9 @@
+version: '2'
+services:
+
+  ksql-server:
+    image: confluentinc/cp-ksql-server:5.3.1
+    environment:
+      KSQL_BOOTSTRAP_SERVERS: kafka:9092
+      KSQL_LISTENERS: http://0.0.0.0:8088
+      KSQL_KSQL_SERVICE_ID: ksql_service_1_
