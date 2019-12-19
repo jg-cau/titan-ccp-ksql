@@ -6,9 +6,16 @@ services:
     environment:
       KSQL_BOOTSTRAP_SERVERS: kafka:9092
       KSQL_LISTENERS: http://0.0.0.0:8088
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081                                         
       KSQL_KSQL_SERVICE_ID: ksql_service_1_
 
-  networks:
-    default:
-      external:
-        name: titan-ccp-demo_default
+  schema-registry:
+    image: "confluentinc/cp-schema-registry:5.3.1"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181                                          
+
+networks:
+  default:
+    external:
+      name: titan-ccp-demo_default
