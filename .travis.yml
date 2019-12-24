@@ -8,6 +8,13 @@ jdk: oraclejdk8
 script:
   - ./gradlew build
 
+deploy:
+  provider: releases
+  api_key: "$GITHUB_OAUTH_TOKEN"
+  file: "udf/build/libs/udf.jar"
+  skip_cleanup: true
+  draft: true
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
