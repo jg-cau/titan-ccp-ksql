@@ -14,8 +14,7 @@ deploy:
   file: "udf/build/libs/udf.jar"
   overwrite: true
   skip_cleanup: true
-  on:
-    tags: false
+  draft: true
   
 
 before_cache:
