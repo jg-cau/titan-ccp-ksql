@@ -9,4 +9,4 @@
 
 rootProject.name = 'titan-ccp-ksql'
 
-include 'udf'
+include 'udf', 'sql'
