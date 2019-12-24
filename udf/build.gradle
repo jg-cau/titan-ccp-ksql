@@ -1,0 +1,25 @@
+plugins {
+   id 'groovy'
+   id 'com.adarshr.test-logger' version '1.7.0'
+   id 'com.github.johnrengelman.shadow' version  '5.0.0'
+}
+
+//customize ShadowJar
+jar.enabled = false
+shadowJar { classifier = '' }
+tasks.build.dependsOn tasks.shadowJar
+
+
+dependencies {
+   compile localGroovy()
+   //compile 'org.slf4j:slf4j-simple:+'
+   compile 'io.confluent.ksql:ksql-udf:5.2.2'
+}
+
+// confluent dependencies
+repositories {
+   jcenter()
+   maven {
+      url "http://packages.confluent.io/maven/"
+   }
+}
