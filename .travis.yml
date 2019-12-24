@@ -3,7 +3,7 @@ install: true
 
 os: linux
 dist: trusty
-jdk: oraclejdk8
+jdk: oraclejdk11
 
 script:
   - ./gradlew build
@@ -12,8 +12,11 @@ deploy:
   provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
   file: "udf/build/libs/udf.jar"
+  overwrite: true
   skip_cleanup: true
-  draft: true
+  on:
+    tags: false
+  
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
