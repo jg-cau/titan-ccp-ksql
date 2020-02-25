@@ -16,6 +16,7 @@ CREATE TABLE data_sensor_per_min AS
 /* Timestamp is used in windowed aggr */
 create stream inputStream (timestamp BIGINT, valueinw DOUBLE) with (KAFKA_TOPIC='input', VALUE_FORMAT='AVRO', TIMESTAMP='timestamp');
 
+/*
 Name                 : INPUTSTREAM
  Field     | Type                       
 ---------------------------------------
@@ -24,6 +25,7 @@ Name                 : INPUTSTREAM
  TIMESTAMP | BIGINT                     
  VALUEINW  | DOUBLE                     
 ---------------------------------------
+*/
 
 CREATE TABLE avg_power_per_device_6h AS
     SELECT ROWKEY,
@@ -32,7 +34,7 @@ CREATE TABLE avg_power_per_device_6h AS
            sum(valueinw) / count(valueinw) AS avg
     FROM inputstream
     WINDOW TUMBLING (SIZE 6 HOURS) GROUP BY ROWKEY;
-
+/*
 Name                 : AVG_POWER_PER_DEVICE_6H
  Field        | Type                      
 ------------------------------------------
@@ -42,3 +44,8 @@ Name                 : AVG_POWER_PER_DEVICE_6H
  WINDOW_END   | VARCHAR(STRING)           
  AVG          | DOUBLE                    
 ------------------------------------------
+*/
+select * from avg_power_per_device_6h
+    where ((window_start LIKE '%00:00:00') AND
+        (CHECKDATE(STRINGTOTIMESTAMP(window_start, 'yyyy-MM-dd HH:mm:ss'), 'SATURDAY') LIKE 'T%'))
+    limit 20;

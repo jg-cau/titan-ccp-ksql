@@ -7,10 +7,11 @@ services:
     environment:
       KSQL_BOOTSTRAP_SERVERS: kafka:9092
       KSQL_LISTENERS: http://0.0.0.0:8088
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       KSQL_KSQL_SERVICE_ID: ksql_service_1_
       KSQL_KSQL_EXTENSION_DIR: /etc/ksql-server/ext
     volumes:
-      - /home/chonk/ext:/etc/ksql-server/ext
+      - /home/$USER/ext:/etc/ksql-server/ext
 
   ## CLI is just for testing purposes
   ksql-cli:

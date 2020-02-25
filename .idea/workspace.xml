@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18823d09-3e2d-40f3-8f67-47743677333d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql/src/main/pipeline/001-basicStreamAndTable/stream.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/src/main/pipeline/001-basicStreamAndTable/stream.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/udf/src/main/java/titan/ccp/ksql/Multiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/udf/src/main/java/titan/ccp/ksql/Multiply.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +170,7 @@
       <workItem from="1578781381356" duration="6000" />
       <workItem from="1578781850423" duration="37000" />
       <workItem from="1578781905258" duration="2000" />
-      <workItem from="1582560163549" duration="1182000" />
+      <workItem from="1582560163549" duration="7454000" />
     </task>
     <servers />
   </component>
